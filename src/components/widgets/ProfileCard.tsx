@@ -17,8 +17,8 @@ export default function ProfileCard(): ReactNode {
                 Akbar Hendra Jaya
             </h1>
             <div className="flex my-2">
-                <div className="border-b-[4px] w-[20%] border-gray-500"></div>
-                <div className="border-b-[4px] w-[80%] border-gray-700"></div>
+                <div className="border-b-[3px] w-[20%] border-gray-500"></div>
+                <div className="border-b-[3px] w-[80%] border-gray-700"></div>
             </div>
             <h2 className="italic">
                 @UnknownRori
