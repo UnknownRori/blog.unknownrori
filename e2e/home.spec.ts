@@ -35,6 +35,7 @@ test('Should have profile card', async ({ page }) => {
   const profileCard = page.locator('#profile-card');
 
   await expect(profileCard).toBeVisible();
+  await expect(profileCard.getByText(/UnknownRori/).first()).toBeVisible();
 });
 
 test('Should have list of card posts', async ({ page }) => {
