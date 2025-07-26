@@ -14,7 +14,7 @@ export default function Navbar(): ReactNode {
 
     return (
         <nav aria-label="navigation-bar"
-            className="flex gap-4 justify-between items-center w-full py-4 px-8 shadow-lg backdrop:bg-white/20 backdrop-blur-3xl">
+            className="flex gap-4 justify-between items-center w-full py-4 px-8 backdrop-blur-lg">
             <div className="font-bold">
                 Blog
             </div>
