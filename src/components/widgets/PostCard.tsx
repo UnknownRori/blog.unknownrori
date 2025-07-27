@@ -8,7 +8,7 @@ const MAX_TEXT_CONTENT = 400;
 
 export default function PostCard(props: Post): ReactNode {
     return (
-        <GlassCard className="w-full h-full p-0">
+        <GlassCard className="card w-full h-full p-0">
             <div className="bg-gray-900">
                 <div className="mx-4">
                     <h1 className="font-bold text-lg">
