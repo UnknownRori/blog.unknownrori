@@ -29,7 +29,7 @@ test('Should have `Series` in .active state', async ({ page }) => {
   await expect(series).toHaveClass(/active/);
 });
 
-test('Should have list of card posts', async ({ page }) => {
+test('Should have list of card series', async ({ page }) => {
   await page.goto('/series', { timeout: timeoutPage });
 
   const blogPosts = page.locator('.card');
@@ -37,6 +37,13 @@ test('Should have list of card posts', async ({ page }) => {
   await expect(blogPosts.first()).toBeVisible();
 });
 
+test('Should have list of post inside series', async ({ page }) => {
+  await page.goto('/series', { timeout: timeoutPage });
+
+  const seriesList = page.locator('.series-list');
+
+  await expect(seriesList.first()).toBeVisible();
+});
 test('Should have footer', async ({ page }) => {
   await page.goto('/series', { timeout: timeoutPage });
 
