@@ -3,7 +3,7 @@ export interface Series {
     thumbnail: string,
     title: string,
     slug: string,
-    content: string,
+    description: string,
     createdAt: Date,
 
     posts: Array<Posts>

@@ -3,12 +3,30 @@ import {
 } from 'react-router';
 
 import router from './router';
+import PostContext from '@/providers/PostProvider';
+import SeriesContext from '@/providers/SeriesProvider';
+
+import Container from './infrastructure/Container';
+
+import InMemorySeriesRepository from './infrastructure/repository/InMemorySeriesRepository';
+import InMemoryPostRepository from './infrastructure/repository/InMemoryPostRepository';
+import { seriesData } from './statics/SeriesData';
+import { postData } from './statics/PostData';
 
 function App() {
+  const container = new Container({
+    seriesRepository: new InMemorySeriesRepository(seriesData),
+    postRepository: new InMemoryPostRepository(postData),
+  });
+
   return (
     <>
-      <RouterProvider router={router}>
-      </RouterProvider>
+      <PostContext value={container.postRepository}>
+        <SeriesContext value={container.seriesRepository}>
+          <RouterProvider router={router}>
+          </RouterProvider>
+        </SeriesContext>
+      </PostContext>
     </>
   )
 }

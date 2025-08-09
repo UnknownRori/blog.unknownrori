@@ -41,7 +41,7 @@ export default function SeriesCard(props: Series): ReactNode {
 
             <div className="p-4">
                 <p>
-                    {props.content.slice(0, MAX_TEXT_CONTENT) + (props.content.length >= MAX_TEXT_CONTENT ? "..." : "")}
+                    {props.description.slice(0, MAX_TEXT_CONTENT) + (props.description.length >= MAX_TEXT_CONTENT ? "..." : "")}
                 </p>
             </div>
         </GlassCard>
