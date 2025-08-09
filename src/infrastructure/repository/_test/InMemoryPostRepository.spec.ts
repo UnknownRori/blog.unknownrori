@@ -49,7 +49,7 @@ describe('InMemoryPostRepository', () => {
         expect(repo.all().length).toBe(1);
     });
 
-    it('It should able to delete post in InMemoryPostRepository correctly', () => {
+    it('It should able to find post in InMemoryPostRepository correctly', () => {
         const repo = new InMemoryPostRepository();
 
         repo.insert({
