@@ -10,7 +10,7 @@ export default function Series(): ReactNode {
           <SeriesCard
             key={series.id} id={series.id}
             thumbnail={series.thumbnail} title={series.title}
-            slug={series.slug} content={series.content}
+            slug={series.slug} description={series.description}
             createdAt={series.createdAt}
             posts={series.posts}
           />
