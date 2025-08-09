@@ -23,7 +23,7 @@ export default function Navbar(): ReactNode {
                     <li className="flex gap-4">
                         {nav.map((nav) => {
                             return (
-                                <NavLink to={nav.to} ariaLabel={nav.title} isActive={nav.to == pathname}>
+                                <NavLink key={nav.to} to={nav.to} ariaLabel={nav.title} isActive={nav.to == pathname}>
                                     {nav.title}
                                 </NavLink>
                             );

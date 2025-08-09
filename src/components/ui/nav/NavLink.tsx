@@ -16,8 +16,8 @@ export default function NavLink({ to, isActive, className, ariaLabel, children }
             <span className={cn(`absolute -bottom-1 left-0 z-10 h-[2px] w-0 bg-white/20 dark:bg-white
                 duration-500`, isActive ? 'w-full bg-white ' : 'group-hover:w-full group-hover:bg-white ')}></span>
             <ReactNavLink to={to} aria-label={ariaLabel}
-                className={cn('text-xl text-gray-200 group-hover:text-white font-bold duration-500',
-                    isActive ? 'active animate-pulse group-hover:animate-none' : '',
+                className={cn('text-xl group-hover:text-white font-bold duration-500',
+                    isActive ? 'active animate-pulse group-hover:animate-none text-gray-200' : 'text-gray-500',
                     className)}
             >
                 {children}

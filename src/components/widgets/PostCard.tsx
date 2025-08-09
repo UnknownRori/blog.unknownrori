@@ -12,7 +12,7 @@ export default function PostCard(props: Post): ReactNode {
             <div className="bg-gray-900">
                 <div className="mx-4">
                     <h1 className="font-bold text-lg">
-                        ■  {props.title}
+                        ■ {props.title}
                     </h1>
                     <span className="text-xs italic">
                         {moment(props.createdAt).format("dddd, DD MM,YYYY")}
