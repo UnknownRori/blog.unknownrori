@@ -5,4 +5,5 @@ export default interface PostRepository {
     insert(post: Post): void;
     delete(id: string): void;
     find(id: string): Post | undefined;
+    findSlug(slug: string): Post | undefined;
 }
