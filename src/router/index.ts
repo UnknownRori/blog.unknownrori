@@ -4,6 +4,7 @@ import {
 
 import Home from '../pages/Home';
 import Series from '@/pages/Series';
+import DetailPost from '@/pages/DetailPost';
 import NotFound from '@/pages/NotFound';
 import BaseLayout from '@/layouts/BaseLayout';
 
@@ -15,6 +16,7 @@ export default createBrowserRouter([
         children: [
             { index: true, Component: Home },
             { path: 'series', Component: Series },
+            { path: '/posts/:slug', Component: DetailPost },
         ]
     }
 ])
