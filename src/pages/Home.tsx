@@ -18,7 +18,7 @@ export default function Home(): ReactNode {
             <PostCard
               key={post.id} id={post.id}
               thumbnail={post.thumbnail} title={post.title}
-              slug={post.slug} content={post.content}
+              slug={post.slug} content={post.content} description={post.description}
               createdAt={post.createdAt}
             />
           )

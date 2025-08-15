@@ -12,11 +12,12 @@ export default createBrowserRouter([
     {
         path: '/',
         Component: BaseLayout,
-        errorElement: NotFound(),
+
         children: [
             { index: true, Component: Home },
             { path: 'series', Component: Series },
             { path: '/posts/:slug', Component: DetailPost },
+            { path: '*', Component: NotFound }
         ]
     }
 ])
