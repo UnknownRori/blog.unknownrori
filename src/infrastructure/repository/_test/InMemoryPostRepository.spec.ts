@@ -15,6 +15,7 @@ describe('InMemoryPostRepository', () => {
             id: "post-1",
             slug: "hi-world!",
             title: "Hi World!",
+            description: "Hi",
             content: "Hi",
             createdAt: new Date(),
             thumbnail: "",
@@ -30,6 +31,7 @@ describe('InMemoryPostRepository', () => {
             id: "post-1",
             slug: "hi-world!",
             title: "Hi World!",
+            description: "Hi",
             content: "Hi",
             createdAt: new Date(),
             thumbnail: "",
@@ -39,6 +41,7 @@ describe('InMemoryPostRepository', () => {
             id: "post-2",
             slug: "hi-world!",
             title: "Hi World!",
+            description: "Hi",
             content: "Hi",
             createdAt: new Date(),
             thumbnail: "",
@@ -56,6 +59,7 @@ describe('InMemoryPostRepository', () => {
             id: "post-1",
             slug: "hi-world!",
             title: "Hi World!",
+            description: "Hi",
             content: "Hi",
             createdAt: new Date(),
             thumbnail: "",
@@ -67,6 +71,40 @@ describe('InMemoryPostRepository', () => {
         expect(post?.id).toBe("post-1");
         expect(post?.slug).toBe("hi-world!");
         expect(post?.title).toBe("Hi World!");
+        expect(post?.description).toBe("Hi");
+        expect(post?.content).toBe("Hi");
+    });
+
+    it('It should able to find post using slug in InMemoryPostRepository correctly', () => {
+        const repo = new InMemoryPostRepository();
+
+        repo.insert({
+            id: "post-1",
+            slug: "hi-world!",
+            title: "Hi World!",
+            description: "Hi",
+            content: "Hi",
+            createdAt: new Date(),
+            thumbnail: "",
+        });
+
+        repo.insert({
+            id: "post-2",
+            slug: "cats",
+            title: "Hi World!",
+            description: "Hi",
+            content: "Hi",
+            createdAt: new Date(),
+            thumbnail: "",
+        });
+
+        const post = repo.findSlug("hi-world!");
+
+        expect(post).not.toBeNull();
+        expect(post?.id).toBe("post-1");
+        expect(post?.slug).toBe("hi-world!");
+        expect(post?.title).toBe("Hi World!");
+        expect(post?.description).toBe("Hi");
         expect(post?.content).toBe("Hi");
     });
 });

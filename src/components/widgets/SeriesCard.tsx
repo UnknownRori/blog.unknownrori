@@ -1,4 +1,5 @@
 import moment from "moment";
+import { Link } from "react-router";
 import type { ReactNode } from "react";
 
 import { GlassCard } from "../ui/card";
@@ -31,7 +32,7 @@ export default function SeriesCard(props: Series): ReactNode {
                         {props.posts.map((post) => {
                             return (
                                 <li className="hover:bg-gray-500/20 backdrop-blur-lg py-2 px-4 hover:cursor-pointer hover:font-bold duration-200">
-                                    <p>■ {post.title}</p>
+                                    <Link to={`/posts/${post.slug}`}>■ {post.title}</Link>
                                 </li>
                             )
                         })}

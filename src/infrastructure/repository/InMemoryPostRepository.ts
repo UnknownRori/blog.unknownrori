@@ -24,4 +24,8 @@ export default class InMemoryPostRepository implements PostRepository {
         return this.data.find((post) => post.id === id);
     }
 
+    findSlug(slug: string): Post | undefined {
+        return this.data.find((post) => post.slug === slug);
+    }
+
 }

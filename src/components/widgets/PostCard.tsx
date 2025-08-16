@@ -1,4 +1,5 @@
 import moment from "moment";
+import { Link } from "react-router";
 import type { ReactNode } from "react";
 
 import type { Post } from "@/models/Posts";
@@ -12,7 +13,9 @@ export default function PostCard(props: Post): ReactNode {
             <div className="bg-gray-900">
                 <div className="mx-4">
                     <h1 className="font-bold text-lg">
-                        ■ {props.title}
+                        <Link to={`/posts/${props.slug}`}>
+                            ■ {props.title}
+                        </Link>
                     </h1>
                     <span className="text-xs italic">
                         {moment(props.createdAt).format("dddd, DD MM,YYYY")}
@@ -25,7 +28,7 @@ export default function PostCard(props: Post): ReactNode {
 
             <div className="p-4">
                 <p>
-                    {props.content.slice(0, MAX_TEXT_CONTENT) + (props.content.length >= MAX_TEXT_CONTENT ? "..." : "")}
+                    {props.description.slice(0, MAX_TEXT_CONTENT) + (props.description.length >= MAX_TEXT_CONTENT ? "..." : "")}
                 </p>
             </div>
         </GlassCard>
