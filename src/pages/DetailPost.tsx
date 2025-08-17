@@ -1,25 +1,30 @@
-import { useContext, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import { useParams } from "react-router";
 import sanitizeHtml from 'sanitize-html';
 import moment from "moment";
 
-import PostContext from '@/providers/PostProvider';
 import type { Post } from "@/models/Posts";
+import { LoadingIcon } from "@/components/ui/icons";
 import GlassCard from "@/components/ui/card/GlassCard";
+import { usePostFind } from "@/composable/usePostFindSlug";
 
 export default function DetailPost(): ReactNode {
   const params = useParams();
-  const post = useContext(PostContext).findSlug(params.slug ?? '-1');
+  const [post, loading] = usePostFind(params.slug ?? '-1');
   return (
     <div>
-      {post == undefined ? PostNotFound() : PostContent(post)}
+      {loading ? <div className="w-full h-screen flex justify-center items-center gap-4 text-center font-bold text-2xl">
+        <LoadingIcon className="w-24 h-24" />
+      </div>
+        : post != undefined ? PostContent(post) : PostNotFound()
+      }
     </div>
   );
 }
 
 function PostNotFound() {
   return (
-    <div className="w-full h-full flex justify-center items-center gap-4">
+    <div className="w-full h-screen flex justify-center items-center gap-4 text-center font-bold text-2xl">
       Posts Not Found!
     </div>
   );
@@ -44,10 +49,12 @@ function PostContent(post: Post) {
           </div>
         </div>
         <img src={post.thumbnail} alt={post.slug}
-          className="w-full h-[300px] object-cover"
+          className="w-full object-cover"
         />
 
-        <div className="prose prose-invert p-4" dangerouslySetInnerHTML={data}>
+        <div className="w-full p-4">
+          <div className="prose prose-invert" dangerouslySetInnerHTML={data}>
+          </div>
         </div>
       </GlassCard>
     </div>
