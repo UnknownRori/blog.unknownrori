@@ -8,23 +8,23 @@ export default class InMemoryPostRepository implements PostRepository {
         this.data = data;
     }
 
-    all(): Array<Post> {
+    async all(): Promise<Array<Post>> {
         return this.data;
     }
 
-    insert(post: Post): void {
+    async insert(post: Post): Promise<void> {
         this.data.push(post);
     }
 
-    delete(id: string): void {
+    async delete(id: string): Promise<void> {
         this.data = this.data.filter((post) => post.id !== id);
     }
 
-    find(id: string): Post | undefined {
+    async find(id: string): Promise<Post | undefined> {
         return this.data.find((post) => post.id === id);
     }
 
-    findSlug(slug: string): Post | undefined {
+    async findSlug(slug: string): Promise<Post | undefined> {
         return this.data.find((post) => post.slug === slug);
     }
 

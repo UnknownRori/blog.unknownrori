@@ -1,13 +1,15 @@
-import { useContext, type ReactNode } from "react";
+import { type ReactNode } from "react";
 
 import SeriesCard from "@/components/widgets/SeriesCard";
-import SeriesContext from '@/providers/SeriesProvider';
+import { LoadingIcon } from "@/components/ui/icons";
+import { useSeriesAll } from "@/composable/useSeriesAll";
 
 export default function Series(): ReactNode {
-  const seriesContext = useContext(SeriesContext);
+  const [series, loading] = useSeriesAll();
   return (
     <div className="relative flex flex-col gap-4 md:mx-24 sm:mx-2 md:my-8 sm:my-12">
-      {seriesContext.all().map((series) => {
+      {loading ? <LoadingIcon /> : <></>}
+      {series.map((series) => {
         return (
           <SeriesCard
             key={series.id} id={series.id}

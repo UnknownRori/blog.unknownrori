@@ -6,4 +6,7 @@ export interface Post {
     description: string,
     content: string,
     createdAt: Date,
+
+    categoriesId?: number;
+    languageId: number;
 }
