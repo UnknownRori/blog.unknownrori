@@ -11,7 +11,7 @@ export default class SupabasePostRepository implements PostRepository {
     }
 
     async all(): Promise<Array<Post>> {
-        const { data, error } = await this.supabase.from('posts').select();
+        const { data, error } = await this.supabase.from('posts').select().order('created_at');
         if (error) {
             throw error;
         }
