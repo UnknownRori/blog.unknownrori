@@ -2,16 +2,16 @@ import { expect, describe, it } from 'vitest';
 import InMemorySeriesRepository from '../InMemorySeriesRepository';
 
 describe('InMemorySeriesRepository', () => {
-    it('It should initialize InMemorySeriesRepository correctly', () => {
+    it('It should initialize InMemorySeriesRepository correctly', async () => {
         const repo = new InMemorySeriesRepository();
 
-        expect(repo.all().length).toBe(0);
+        expect((await repo.all()).length).toBe(0);
     });
 
-    it('It should able to insert series into InMemoryPostRepository correctly', () => {
+    it('It should able to insert series into InMemoryPostRepository correctly', async () => {
         const repo = new InMemorySeriesRepository();
 
-        repo.insert({
+        await repo.insert({
             id: "series-1",
             slug: "hi-world!",
             title: "Hi World!",
@@ -21,13 +21,13 @@ describe('InMemorySeriesRepository', () => {
             posts: [],
         });
 
-        expect(repo.all().length).toBe(1);
+        expect((await repo.all()).length).toBe(1);
     });
 
-    it('It should able to delete series into InMemoryPostRepository correctly', () => {
+    it('It should able to delete series into InMemoryPostRepository correctly', async () => {
         const repo = new InMemorySeriesRepository();
 
-        repo.insert({
+        await repo.insert({
             id: "series-1",
             slug: "hi-world!",
             title: "Hi World!",
@@ -37,8 +37,8 @@ describe('InMemorySeriesRepository', () => {
             posts: [],
         });
 
-        repo.delete("series-1");
+        await repo.delete("series-1");
 
-        expect(repo.all().length).toBe(0);
+        expect((await repo.all()).length).toBe(0);
     });
 });

@@ -8,19 +8,19 @@ export default class InMemorySeriesRepository implements SeriesRepository {
         this.data = data;
     }
 
-    all(): Array<Series> {
+    async all(): Promise<Array<Series>> {
         return this.data;
     }
 
-    insert(series: Series): void {
+    async insert(series: Series): Promise<void> {
         this.data.push(series);
     }
 
-    delete(id: string): void {
+    async delete(id: string): Promise<void> {
         this.data = this.data.filter((series) => series.id !== id);
     }
 
-    find(id: string): Series | undefined {
+    async find(id: string): Promise<Series | undefined> {
         return this.data.find((series) => series.id === id);
     }
 
