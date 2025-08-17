@@ -23,7 +23,7 @@ export default function PostCard(props: Post): ReactNode {
                 </div>
             </div>
             <img src={props.thumbnail} alt={props.slug}
-                className="w-full h-[300px] object-cover"
+                className="w-full h-[300px] object-cover text-center flex justify-center items-center italic"
             />
 
             <div className="p-4">

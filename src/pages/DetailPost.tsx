@@ -49,15 +49,13 @@ function PostContent(post: Post) {
           </div>
         </div>
         <img src={post.thumbnail} alt={post.slug}
-          className="w-full object-cover"
+          className="w-full object-cover min-h-[300px] flex justify-center items-center italic"
         />
 
-        <div className="w-full p-4">
-          <div className="prose prose-invert" dangerouslySetInnerHTML={data}>
-          </div>
+        <div className="prose prose-invert max-w-[fit-content] p-4" dangerouslySetInnerHTML={data}>
         </div>
-      </GlassCard>
-    </div>
+      </GlassCard >
+    </div >
   );
 }
 
