@@ -8,14 +8,13 @@ import SeriesContext from '@/providers/SeriesProvider';
 
 import Container from './infrastructure/Container';
 
-import InMemorySeriesRepository from './infrastructure/repository/InMemorySeriesRepository';
-import { seriesData } from './statics/SeriesData';
 import supabase from './infrastructure/supabase/supabase';
 import SupabasePostRepository from './infrastructure/repository/SupabasePostRepository';
+import SupabaseSeriesRepository from './infrastructure/repository/SupabaseSeriesRepository';
 
 function App() {
   const container = new Container({
-    seriesRepository: new InMemorySeriesRepository(seriesData),
+    seriesRepository: new SupabaseSeriesRepository(supabase),
     postRepository: new SupabasePostRepository(supabase),
   });
 
