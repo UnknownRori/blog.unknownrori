@@ -12,21 +12,26 @@ import InMemorySeriesRepository from './infrastructure/repository/InMemorySeries
 import InMemoryPostRepository from './infrastructure/repository/InMemoryPostRepository';
 import { seriesData } from './statics/SeriesData';
 import { postData } from './statics/PostData';
+import SupabaseContext from './providers/SupabaseProvider';
+import supabase from './infrastructure/supabase/supabase';
 
 function App() {
   const container = new Container({
     seriesRepository: new InMemorySeriesRepository(seriesData),
     postRepository: new InMemoryPostRepository(postData),
+    supabase,
   });
 
   return (
     <>
-      <PostContext value={container.postRepository}>
-        <SeriesContext value={container.seriesRepository}>
-          <RouterProvider router={router}>
-          </RouterProvider>
-        </SeriesContext>
-      </PostContext>
+      <SupabaseContext value={supabase}>
+        <PostContext value={container.postRepository}>
+          <SeriesContext value={container.seriesRepository}>
+            <RouterProvider router={router}>
+            </RouterProvider>
+          </SeriesContext>
+        </PostContext>
+      </SupabaseContext>
     </>
   )
 }
