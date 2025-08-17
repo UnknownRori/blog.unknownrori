@@ -6,24 +6,6 @@ export type Database = {
   }
   public: {
     Tables: {
-      categories: {
-        Row: {
-          created_at: string
-          id: number
-          name: string
-        }
-        Insert: {
-          created_at?: string
-          id?: number
-          name: string
-        }
-        Update: {
-          created_at?: string
-          id?: number
-          name?: string
-        }
-        Relationships: []
-      }
       langugages: {
         Row: {
           created_at: string
@@ -47,38 +29,44 @@ export type Database = {
       }
       posts: {
         Row: {
-          categories_id: number
           content: string
           created_at: string
+          description: string
           id: number
           language_id: number
+          series_id: number | null
           slug: string
+          thumbnail: string | null
           title: string
         }
         Insert: {
-          categories_id: number
           content: string
           created_at?: string
+          description: string
           id?: number
           language_id: number
+          series_id?: number | null
           slug: string
+          thumbnail?: string | null
           title: string
         }
         Update: {
-          categories_id?: number
           content?: string
           created_at?: string
+          description?: string
           id?: number
           language_id?: number
+          series_id?: number | null
           slug?: string
+          thumbnail?: string | null
           title?: string
         }
         Relationships: [
           {
             foreignKeyName: "posts_categories_id_fkey"
-            columns: ["categories_id"]
+            columns: ["series_id"]
             isOneToOne: false
-            referencedRelation: "categories"
+            referencedRelation: "series"
             referencedColumns: ["id"]
           },
           {
@@ -89,6 +77,30 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      series: {
+        Row: {
+          created_at: string
+          id: number
+          name: string
+          slug: string | null
+          thumbnail: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          name: string
+          slug?: string | null
+          thumbnail?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          name?: string
+          slug?: string | null
+          thumbnail?: string | null
+        }
+        Relationships: []
       }
       tags: {
         Row: {
