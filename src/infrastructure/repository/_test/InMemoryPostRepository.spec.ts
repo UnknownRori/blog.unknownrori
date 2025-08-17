@@ -17,6 +17,7 @@ describe('InMemoryPostRepository', () => {
             title: "Hi World!",
             description: "Hi",
             content: "Hi",
+            languageId: 1,
             createdAt: new Date(),
             thumbnail: "",
         });
@@ -33,6 +34,7 @@ describe('InMemoryPostRepository', () => {
             title: "Hi World!",
             description: "Hi",
             content: "Hi",
+            languageId: 1,
             createdAt: new Date(),
             thumbnail: "",
         });
@@ -43,6 +45,7 @@ describe('InMemoryPostRepository', () => {
             title: "Hi World!",
             description: "Hi",
             content: "Hi",
+            languageId: 1,
             createdAt: new Date(),
             thumbnail: "",
         });
@@ -61,6 +64,7 @@ describe('InMemoryPostRepository', () => {
             title: "Hi World!",
             description: "Hi",
             content: "Hi",
+            languageId: 1,
             createdAt: new Date(),
             thumbnail: "",
         });
@@ -84,6 +88,7 @@ describe('InMemoryPostRepository', () => {
             title: "Hi World!",
             description: "Hi",
             content: "Hi",
+            languageId: 1,
             createdAt: new Date(),
             thumbnail: "",
         });
@@ -94,6 +99,7 @@ describe('InMemoryPostRepository', () => {
             title: "Hi World!",
             description: "Hi",
             content: "Hi",
+            languageId: 1,
             createdAt: new Date(),
             thumbnail: "",
         });
