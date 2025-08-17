@@ -24,9 +24,14 @@ export default function DetailPost(): ReactNode {
 
 function PostNotFound() {
   return (
-    <div className="w-full h-screen flex justify-center items-center gap-4 text-center font-bold text-2xl">
-      Posts Not Found!
-    </div>
+    <>
+      <meta name="description" content="Post not found" />
+
+      <div className="w-full h-screen flex justify-center items-center gap-4 text-center font-bold text-2xl">
+        Posts Not Found!
+      </div>
+
+    </>
   );
 }
 
@@ -35,27 +40,35 @@ function PostContent(post: Post) {
     __html: sanitizeHtml(post.content)
   };
 
+  document.title = `UnknownRori's Blog - ${post.title}`
   return (
-    <div className="w-full flex justify-center items-center">
-      <GlassCard className="card sm:w-[100%] md:w-[85%] lg:w-[75%] 2xl:w-[65%] h-full p-0">
-        <div className="bg-gray-900">
-          <div className="mx-4">
-            <h1 className="font-bold text-lg">
-              ■ {post.title}
-            </h1>
-            <span className="text-xs italic">
-              {moment(post.createdAt).format("dddd, DD MM,YYYY")}
-            </span>
-          </div>
-        </div>
-        <img src={post.thumbnail} alt={post.slug}
-          className="w-full object-cover min-h-[300px] flex justify-center items-center italic"
-        />
+    <>
+      <div>
+        <meta name="description" content={post.description} />
+        <meta property="og:image" content={post.thumbnail} />
+      </div>
 
-        <div className="prose prose-invert max-w-[fit-content] p-4" dangerouslySetInnerHTML={data}>
-        </div>
-      </GlassCard >
-    </div >
+      <div className="w-full flex justify-center items-center">
+        <GlassCard className="card sm:w-[100%] md:w-[85%] lg:w-[75%] 2xl:w-[65%] h-full p-0">
+          <div className="bg-gray-900">
+            <div className="mx-4">
+              <h1 className="font-bold text-lg">
+                ■ {post.title}
+              </h1>
+              <span className="text-xs italic">
+                {moment(post.createdAt).format("dddd, DD MM,YYYY")}
+              </span>
+            </div>
+          </div>
+          <img src={post.thumbnail} alt={post.slug}
+            className="w-full object-cover min-h-[300px] flex justify-center items-center italic"
+          />
+
+          <div className="prose prose-invert max-w-[fit-content] p-4" dangerouslySetInnerHTML={data}>
+          </div>
+        </GlassCard >
+      </div >
+    </>
   );
 }
 

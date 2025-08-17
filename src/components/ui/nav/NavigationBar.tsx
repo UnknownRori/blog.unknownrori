@@ -1,4 +1,3 @@
-import { Sun } from 'lucide-react';
 import type { ReactNode } from "react";
 import { useLocation } from 'react-router';
 
@@ -14,10 +13,7 @@ export default function Navbar(): ReactNode {
 
     return (
         <nav aria-label="navigation-bar"
-            className="flex gap-4 justify-between items-center w-full py-4 px-8 backdrop-blur-lg">
-            <div className="font-bold">
-                Blog
-            </div>
+            className="flex gap-4 justify-center items-center w-full py-4 px-8 backdrop-blur-lg">
             <div>
                 <ul>
                     <li className="flex gap-4">
@@ -30,9 +26,6 @@ export default function Navbar(): ReactNode {
                         })}
                     </li>
                 </ul>
-            </div>
-            <div>
-                <Sun className="text-white" />
             </div>
         </nav>
     )
