@@ -1,4 +1,4 @@
-import { useEffect, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import { useParams } from "react-router";
 import dompurify from 'dompurify'
 import moment from "moment";
