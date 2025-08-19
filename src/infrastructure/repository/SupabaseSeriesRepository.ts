@@ -25,15 +25,15 @@ export default class SupabaseSeriesRepository implements SeriesRepository {
     }
 
     async insert(series: Series): Promise<void> {
-        throw "TODO";
+        throw "TODO:" + series;
     }
 
     async delete(id: string): Promise<void> {
-        throw "TODO";
+        throw "TODO" + id;
     }
 
     async find(id: string): Promise<Series | undefined> {
-        throw "TODO";
+        throw "TODO" + id;
     }
 
 }

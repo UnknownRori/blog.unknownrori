@@ -19,11 +19,11 @@ export default class SupabasePostRepository implements PostRepository {
     }
 
     async insert(post: Post): Promise<void> {
-        throw "TODO";
+        throw "TODO" + post;
     }
 
     async delete(id: string): Promise<void> {
-        throw "TODO";
+        throw "TODO" + id;
     }
 
     async find(id: string): Promise<Post | undefined> {

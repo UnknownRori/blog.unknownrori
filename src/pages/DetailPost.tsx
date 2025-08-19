@@ -1,6 +1,6 @@
-import { type ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 import { useParams } from "react-router";
-import sanitizeHtml from 'sanitize-html';
+import dompurify from 'dompurify'
 import moment from "moment";
 
 import type { Post } from "@/models/Posts";
@@ -37,7 +37,7 @@ function PostNotFound() {
 
 function PostContent(post: Post) {
   const data = {
-    __html: sanitizeHtml(post.content)
+    __html: dompurify.sanitize(post.content)
   };
 
   document.title = `UnknownRori's Blog - ${post.title}`
