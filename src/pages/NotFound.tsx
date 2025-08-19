@@ -1,7 +1,5 @@
 import type { ReactNode } from "react";
 
-import BaseLayout from "@/layouts/BaseLayout";
-
 export default function NotFound(): ReactNode {
   return (
     <div className="w-full h-full flex flex-col justify-center items-center gap-4">

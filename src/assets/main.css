@@ -1,2 +1,18 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+@layer base {
+    * {
+        @apply scroll-smooth
+    }
+
+    .prose p:has(img) {
+        @apply flex flex-col justify-center items-center;
+    }
+
+    @media (prefers-reduced-motion) {
+        * {
+            scroll-behavior: auto;
+        }
+    }
+}

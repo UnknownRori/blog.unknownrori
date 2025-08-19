@@ -1,5 +1,6 @@
 import { type ReactNode } from "react";
 
+import AnimatedLayout from "@/components/ui/animation/AnimatedLayout";
 import PostCard from "@/components/widgets/PostCard";
 import ProfileCard from "@/components/widgets/ProfileCard";
 import { LoadingIcon } from "@/components/ui/icons";
@@ -10,7 +11,7 @@ export default function Home(): ReactNode {
   const [post, loading, error] = usePostAll();
 
   return (
-    <div className='relative flex sm:flex-col md:flex-row gap-4 justify-around md:mx-24 sm:mx-2 md:my-8 sm:my-12 items-center text-white'>
+    <AnimatedLayout className='relative flex sm:flex-col md:flex-row gap-4 justify-around md:mx-24 sm:mx-2 md:my-8 sm:my-12 items-center text-white'>
       <div className="lg:w-[50%] sm:w-full mb-auto">
         <ProfileCard />
       </div>
@@ -28,6 +29,6 @@ export default function Home(): ReactNode {
           )
         })}
       </div>
-    </div>
+    </AnimatedLayout>
   )
 }

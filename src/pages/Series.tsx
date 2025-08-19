@@ -1,5 +1,6 @@
 import { type ReactNode } from "react";
 
+import AnimatedLayout from "@/components/ui/animation/AnimatedLayout";
 import SeriesCard from "@/components/widgets/SeriesCard";
 import { LoadingIcon } from "@/components/ui/icons";
 import { useSeriesAll } from "@/composable/useSeriesAll";
@@ -7,7 +8,7 @@ import { useSeriesAll } from "@/composable/useSeriesAll";
 export default function Series(): ReactNode {
   const [series, loading] = useSeriesAll();
   return (
-    <div className="relative flex flex-col gap-4 md:mx-24 sm:mx-2 md:my-8 sm:my-12">
+    <AnimatedLayout className="relative flex flex-col justify-center items-center gap-4 md:mx-24 sm:mx-2 md:my-8 sm:my-12">
       {loading ? <LoadingIcon /> : <></>}
       {series.map((series) => {
         return (
@@ -20,6 +21,6 @@ export default function Series(): ReactNode {
           />
         )
       })}
-    </div>
+    </AnimatedLayout>
   )
 }
