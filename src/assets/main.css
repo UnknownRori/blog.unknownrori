@@ -3,7 +3,11 @@
 
 @layer base {
     * {
-        scroll-behavior: smooth;
+        @apply scroll-smooth
+    }
+
+    .prose p:has(img) {
+        @apply flex flex-col justify-center items-center;
     }
 
     @media (prefers-reduced-motion) {
