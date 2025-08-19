@@ -1,2 +1,14 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+@layer base {
+    * {
+        scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion) {
+        * {
+            scroll-behavior: auto;
+        }
+    }
+}

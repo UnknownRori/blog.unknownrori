@@ -7,6 +7,8 @@ import type { Post } from "@/models/Posts";
 import { LoadingIcon } from "@/components/ui/icons";
 import GlassCard from "@/components/ui/card/GlassCard";
 import { usePostFind } from "@/composable/usePostFindSlug";
+import ReadingProgress from "@/components/widgets/ReadingProgress";
+import { TopButton } from "@/components/ui/nav";
 
 export default function DetailPost(): ReactNode {
   const params = useParams();
@@ -43,6 +45,10 @@ function PostContent(post: Post) {
   document.title = `UnknownRori's Blog - ${post.title}`
   return (
     <>
+      <div className="absolute w-screen top-0 left-0 z-100">
+        <ReadingProgress />
+      </div>
+
       <div>
         <meta name="description" content={post.description} />
         <meta property="og:image" content={post.thumbnail} />
@@ -52,15 +58,15 @@ function PostContent(post: Post) {
         <GlassCard className="card sm:w-[100%] md:w-[85%] lg:w-[75%] 2xl:w-[65%] h-full p-0">
           <div className="bg-gray-900">
             <div className="mx-4">
-              <h1 className="font-bold text-lg">
+              <h1 id="title" aria-label="title" className="font-bold text-lg">
                 ■ {post.title}
               </h1>
-              <span className="text-xs italic">
+              <span id="date-posted" aria-label="date-posted" className="text-xs italic">
                 {moment(post.createdAt).format("dddd, DD MM,YYYY")}
               </span>
             </div>
           </div>
-          <img src={post.thumbnail} alt={post.slug}
+          <img id="thumbnail" aria-label="thumbnail" src={post.thumbnail} alt={post.slug}
             className="w-full object-cover min-h-[300px] flex justify-center items-center italic"
           />
 
@@ -68,6 +74,8 @@ function PostContent(post: Post) {
           </div>
         </GlassCard >
       </div >
+
+      <TopButton />
     </>
   );
 }

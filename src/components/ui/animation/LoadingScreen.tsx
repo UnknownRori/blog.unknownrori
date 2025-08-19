@@ -35,7 +35,7 @@ export default function LoadingScreen(props: LoadingScreenProps): ReactNode {
 
     return (
         <div className={cn(
-            "absolute z-100 w-screen h-screen flex flex-col justify-center items-center gap-4 dark:bg-slate-950 duration-500 pointer-events-none",
+            "fixed top-0 left-0 z-100 w-[100vw] h-[100vh] flex flex-col justify-center items-center gap-4 dark:bg-slate-950 duration-500 pointer-events-none",
             props.className,
         )}>
             <h2 className="font-bold text-3xl dark:text-white shadow-white/50 shadow-text">
